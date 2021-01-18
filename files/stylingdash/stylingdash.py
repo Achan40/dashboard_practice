@@ -15,10 +15,16 @@ player_name_options = [{'label':i, 'value':i} for i in soccer['long_name'].uniqu
 
 app.layout = html.Div([
     html.H1('Soccer Players Dashboard'),
-    html.P(['Source: ',
-        html.A('Sofifa', href='https://sofifa.com', target='_blank')]),
-    html.Label('Plater name: '),
-    dcc.Dropdown(options=player_name_options,value=player_name_options[0]['value'])
+    # Bootstrap grid system
+    dbc.Row([
+        dbc.Col(
+            html.P(['Source: ',
+                html.A('Sofifa', href='https://sofifa.com', target='_blank')])),
+        dbc.Col([
+            html.Label('Plater name: '),
+            dcc.Dropdown(options=player_name_options,value=player_name_options[0]['value'])
+        ])
+    ])
 ])
 
 if __name__ == '__main__':
